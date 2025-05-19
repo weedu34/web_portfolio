@@ -133,12 +133,34 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Production-specific CORS settings
+
+
+# In your settings.py file, find the production section and update it:
+
 if PRODUCTION:
     CORS_ALLOWED_ORIGINS = [
-        "https://weedu34.github.io",
-    ]
+    "https://weedu34.github.io",
+]
     CORS_ALLOW_CREDENTIALS = True
-
+    # ... your existing production settings ...
+    
+    # Configure WhiteNoise to serve media files
+    STATICFILES_DIRS = [
+        os.path.join(BASE_DIR, 'static'),
+    ]
+    
+    # Add media to static files for WhiteNoise to serve
+    STATIC_URL = '/static/'
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    
+    # Configure WhiteNoise to also handle media files
+    WHITENOISE_USE_FINDERS = True
+    WHITENOISE_MAX_AGE = 31536000
+    
+    # Manually add media files location for WhiteNoise
+    STATICFILES_DIRS += [
+        ('media', os.path.join(BASE_DIR, 'media')),
+    ]
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
