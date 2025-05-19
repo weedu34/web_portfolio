@@ -15,5 +15,5 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # CORS settings for production
 CORS_ALLOWED_ORIGINS = [
-    "https://yourusername.github.io",
+    "https://weedu34.github.io",
 ]
