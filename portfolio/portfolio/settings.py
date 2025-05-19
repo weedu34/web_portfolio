@@ -23,10 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-k1j3pu5adsw)uv-tu6bdj)0&mjdm((dzm@*e0n2dw82!7ea(yj'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]', '.ngrok.io', '.ngrok-free.app','weedu34.github.io',
-                 'web-portfolio-f189.onrender.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]', '.ngrok.io', '.ngrok-free.app']
 
 
 # Application definition

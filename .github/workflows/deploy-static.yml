@@ -1,3 +1,4 @@
+# .github/workflows/deploy-static.yml
 name: Build and Deploy Static Files
 
 on:
@@ -26,6 +27,7 @@ jobs:
         env:
           SECRET_KEY: ${{ secrets.SECRET_KEY }}
           DEBUG: "False"
+          DJANGO_SETTINGS_MODULE: "portfolio.settings_production"  # Add this line
           
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
