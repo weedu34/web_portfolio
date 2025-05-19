@@ -26,5 +26,9 @@ urlpatterns = [
     path('', include('main.urls')),
 ]
 
+# Serve media files in production
 if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+else:
+    # For production, serve media files through WhiteNoise
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

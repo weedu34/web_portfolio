@@ -33,15 +33,19 @@
                     <h2 class="h4 mt-5 mb-3">Development Process</h2>
                     <p>This section provides details about the development process, challenges encountered, and solutions implemented. You can customize this content for each project in the admin panel.</p>
                     
+                    {% if project.features %}
                     <h2 class="h4 mt-5 mb-3">Key Features</h2>
                     <ul class="features-list">
-                        <li>Feature 1 description goes here</li>
-                        <li>Feature 2 description goes here</li>
-                        <li>Feature 3 description goes here</li>
+                        {% for feature in project.features.splitlines %}
+                            <li>{{ feature }}</li>
+                        {% endfor %}
                     </ul>
+                    {% endif %}
                     
+                    {% if project.results %}
                     <h2 class="h4 mt-5 mb-3">Results & Impact</h2>
-                    <p>This section highlights the outcomes, achievements, and impact of the project. You can customize this content for each project in the admin panel.</p>
+                    <p>{{ project.results }}</p>
+                    {% endif %}
                 </div>
             </div>
             
